@@ -3,7 +3,7 @@ from pathlib import Path
 
 
 SOURCE_PATH = Path(r"C:\Users\paulo\Downloads")
-OUTPUT_PATH = Path(r"C:\Users\paulo\Documents\Automatic Organization")
+OUTPUT_PATH = Path(r"C:\Users\paulo\Documents\! Automatic Organization")
 
 RULES = {
     ".pdf": "PDFs",
@@ -111,3 +111,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

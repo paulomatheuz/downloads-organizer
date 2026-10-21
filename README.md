@@ -16,7 +16,7 @@ Source:
 
 Destination:
 
-`C:\Users\paulo\Documents\Automatic Organization`
+`C:\Users\paulo\Documents\! Automatic Organization`
 
 These paths are configured in `organize.py`.
 
@@ -84,4 +84,5 @@ Category folders are created as needed.
 
 The log is stored at:
 
-`C:\Users\paulo\Documents\Automatic Organization\organizer.log`
+`C:\Users\paulo\Documents\! Automatic Organization\organizer.log`
+
