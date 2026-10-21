@@ -2,6 +2,7 @@
 
 
 source_path = Path(__file__).resolve().parent / "test-downloads"
+output_path = source_path / "automatic organization"
 
 rules = {
     ".pdf": "PDFs",
@@ -22,14 +23,14 @@ for file in sorted(source_path.iterdir()):
         continue
 
     folder_name = rules[extension]
-    destination_path = source_path / folder_name
+    destination_path = output_path / folder_name
     target_path = destination_path / file.name
 
     if target_path.exists():
         print(f"Skipped: {file.name} - destination already exists.")
         continue
 
-    destination_path.mkdir(exist_ok=True)
+    destination_path.mkdir(parents=True, exist_ok=True)
 
     file.rename(target_path)
-    print(f"Moved: {file.name} -> {folder_name}")
+    print(f"Moved: {file.name} -> automatic organization/{folder_name}")
