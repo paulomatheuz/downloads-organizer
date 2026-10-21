@@ -1,26 +1,55 @@
 ﻿# Downloads Organizer
 
-A Python automation that organizes downloaded files into folders by extension.
+Organize Windows downloads into category folders using Python.
 
 ## Requirements
 
+- Windows
 - Python 3.14 or later
-- Windows for the planned Task Scheduler integration
+- Windows PowerShell 5.1 or later for task installation
 
-## Usage
+## Paths
 
-Run from the project directory:
+Source:
+
+`C:\Users\paulo\Downloads`
+
+Destination:
+
+`C:\Users\paulo\Documents\Automatic Organization`
+
+These paths are configured in `organize.py`.
+
+## Run manually
 
 ```powershell
 py .\organize.py
 ```
 
-The script reads files directly inside `test-downloads`.
-Supported files are moved into category folders under
-`test-downloads/automatic organization`.
+Running the script moves supported files from the source folder.
 
-Create `test-downloads` before running the script.
-Subfolders are not scanned.
+## Install automatic execution
+
+From the project directory:
+
+```powershell
+.\install.ps1
+```
+
+The Windows scheduled task runs once at each logon of the user who
+installed it. It runs without a terminal window and does not continuously
+monitor Downloads.
+
+Keep the project and Python installation at their current locations.
+Run the installer again if either location changes.
+
+## Remove automatic execution
+
+```powershell
+.\uninstall.ps1
+```
+
+Removing the scheduled task does not delete or move organized files.
 
 ## Supported categories
 
@@ -37,17 +66,22 @@ Subfolders are not scanned.
 | Videos | .mp4, .mkv, .avi, .mov, .webm |
 | Installers | .exe, .msi, .msix |
 
-## Current behavior
+Category folders are created as needed.
 
-- Extensions are matched without case sensitivity.
-- Files with unsupported extensions remain in the source folder.
-- Files are skipped when the destination path already exists.
-- Only the final extension is used: `backup.tar.gz` matches `.gz`.
-- Local test files are excluded from Git.
+## Behavior
 
-## Planned improvements
+- Only files directly inside Downloads are scanned.
+- Subfolders are not scanned or moved.
+- Existing destination files are preserved.
+- Unsupported files remain in Downloads.
+- Files ending in .crdownload, .part, .partial or .tmp are skipped.
+- Active downloads using their final extension are not detected.
+- File operation errors are logged, and processing continues.
+- Only the final extension is matched.
+- Extension matching is case-insensitive.
 
-- Handle file operation errors.
-- Detect incomplete or active downloads.
-- Configure the source folder.
-- Run automatically with Windows Task Scheduler.
+## Execution log
+
+The log is stored at:
+
+`C:\Users\paulo\Documents\Automatic Organization\organizer.log`
