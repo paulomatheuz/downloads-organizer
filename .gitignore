@@ -1,0 +1,9 @@
+﻿# Local test files
+/test-downloads/
+
+# Python-generated files
+__pycache__/
+*.py[cod]
+
+# Local virtual environment
+.venv/
