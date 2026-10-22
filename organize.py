@@ -1,9 +1,9 @@
-﻿import logging
+import logging
 from pathlib import Path
 
 
-SOURCE_PATH = Path(r"C:\Users\paulo\Downloads")
-OUTPUT_PATH = Path(r"C:\Users\paulo\Documents\! Automatic Organization")
+SOURCE_PATH = Path.home() / "Downloads"
+OUTPUT_PATH = Path.home() / "Documents" / "! Automatic Organization"
 
 RULES = {
     ".pdf": "PDFs",

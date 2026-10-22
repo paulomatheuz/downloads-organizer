@@ -1,4 +1,4 @@
-﻿# Local test files
+# Local test files
 /test-downloads/
 
 # Python-generated files
@@ -7,3 +7,9 @@ __pycache__/
 
 # Local virtual environment
 .venv/
+
+# Local execution logs
+*.log
+
+# Organized personal files, if created inside the repository
+/! Automatic Organization/

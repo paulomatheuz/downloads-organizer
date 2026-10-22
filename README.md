@@ -1,4 +1,4 @@
-﻿# Downloads Organizer
+# Downloads Organizer
 
 Organize Windows downloads into category folders using Python.
 
@@ -12,13 +12,16 @@ Organize Windows downloads into category folders using Python.
 
 Source:
 
-`C:\Users\paulo\Downloads`
+`%USERPROFILE%\Downloads`
 
 Destination:
 
-`C:\Users\paulo\Documents\! Automatic Organization`
+`%USERPROFILE%\Documents\! Automatic Organization`
 
-These paths are configured in `organize.py`.
+Paths are derived from the current user's home directory using `Path.home()`.
+No personal username or absolute profile path is stored in the code.
+If Downloads or Documents has been relocated (for example, to OneDrive),
+adjust `SOURCE_PATH` or `OUTPUT_PATH` in `organize.py` before running.
 
 ## Run manually
 
@@ -84,5 +87,11 @@ Category folders are created as needed.
 
 The log is stored at:
 
-`C:\Users\paulo\Documents\! Automatic Organization\organizer.log`
+`%USERPROFILE%\Documents\! Automatic Organization\organizer.log`
 
+
+## Privacy
+
+Files are organized locally; the script does not upload documents to GitHub.
+The execution log contains local filenames and errors. Keep it out of version control.
+Do not commit personal documents or machine-specific configuration.
